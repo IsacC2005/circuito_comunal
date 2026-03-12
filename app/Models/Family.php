@@ -7,7 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Family extends Model
 {
 
-    protected $fillable = ['house_id', 'house_status', 'food_module', 'gas_cylinder'];
+    protected $fillable = ['community_id', 'house_id', 'house_status', 'food_module', 'gas_cylinder'];
+
+    public function community()
+    {
+        return $this->belongsTo(Community::class);
+    }
 
     public function house()
     {

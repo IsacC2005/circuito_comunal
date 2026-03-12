@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('families', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('community_id')->constrained()->onDelete('cascade');
             $table->foreignId('house_id')->constrained()->onDelete('cascade');
             $table->enum('house_status', ['propia', 'prestada', 'alquilada', 'hospedado', 'otra']);
             $table->integer('food_module')->nullable();

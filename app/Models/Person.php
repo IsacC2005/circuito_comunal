@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Person extends Model
 {
     protected $fillable = [
+        'community_id',
         'family_id',
         'first_name',
         'second_name',
@@ -19,6 +20,11 @@ class Person extends Model
         'nationality',
         'academy_level'
     ];
+
+    public function community()
+    {
+        return $this->belongsTo(Community::class);
+    }
 
     public function family()
     {

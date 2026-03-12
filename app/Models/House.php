@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
-    protected $fillable = ['street_id', 'number'];
+    protected $fillable = ['community_id', 'street_id', 'number'];
+
+    public function community()
+    {
+        return $this->belongsTo(Community::class);
+    }
 
     public function street()
     {

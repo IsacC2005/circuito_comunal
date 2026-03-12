@@ -17,4 +17,19 @@ class Community extends Model
     {
         return $this->hasMany(Street::class);
     }
+
+    public function houses()
+    {
+        return $this->hasMany(House::class);
+    }
+
+    public function families()
+    {
+        return $this->hasMany(Family::class);
+    }
+
+    public function people()
+    {
+        return $this->hasMany(Person::class);
+    }
 }
