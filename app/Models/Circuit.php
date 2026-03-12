@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Circuit extends Model
 {
-    //
+    protected $fillable = ['name'];
+
+    public function communities()
+    {
+        return $this->hasMany(Community::class);
+    }
 }

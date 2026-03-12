@@ -6,5 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
-    //
+    protected $fillable = [
+        'family_id',
+        'first_name',
+        'second_name',
+        'first_surname',
+        'second_surname',
+        'cedula',
+        'gender',
+        'birth_date',
+        'relationship',
+        'nationality',
+        'academy_level'
+    ];
+
+    public function family()
+    {
+        return $this->belongsTo(Family::class);
+    }
+
+    public function disabilities()
+    {
+        return $this->belongsToMany(Disability::class, 'disable_person');
+    }
 }

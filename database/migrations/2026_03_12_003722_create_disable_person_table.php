@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('disable_person', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->foreignId('person_id')->constrained()->onDelete('cascade');
+            $table->foreignId('disability_id')->constrained()->onDelete('cascade');
         });
     }
 
