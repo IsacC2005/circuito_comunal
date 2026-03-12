@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('circuits', function (Blueprint $table) {
+        Schema::create('families', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('house_id')->constrained()->onDelete('cascade');
+            $table->enum('house_status', ['propia', 'prestada', 'alquilada', 'hospedado', 'otra']);
+            $table->integer('food_module')->nullable();
+            $table->integer('gas_cylinder')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('circuits');
+        Schema::dropIfExists('families');
     }
 };

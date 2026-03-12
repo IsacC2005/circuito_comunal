@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('circuits', function (Blueprint $table) {
+        Schema::create('communities', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('circuit_id')->constrained()->onDelete('cascade');
             $table->string('name');
+            $table->string('code_citur');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('circuits');
+        Schema::dropIfExists('communities');
     }
 };

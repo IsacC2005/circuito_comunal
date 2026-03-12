@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('circuits', function (Blueprint $table) {
+        Schema::create('disabilities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->enum('type', ['física', 'sensorial', 'intelectual', 'psicosocial', 'otra']);
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('circuits');
+        Schema::dropIfExists('disabilities');
     }
 };
