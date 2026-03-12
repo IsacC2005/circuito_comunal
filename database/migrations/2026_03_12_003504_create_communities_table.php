@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('circuit_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('code_citur');
+            $table->string('invitation_token')->nullable()->unique();
             $table->timestamps();
         });
     }

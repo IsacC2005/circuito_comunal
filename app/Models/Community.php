@@ -6,11 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Community extends Model
 {
-    protected $fillable = ['circuit_id', 'name', 'code_citur'];
+    protected $fillable = ['circuit_id', 'name', 'code_citur', 'invitation_token'];
 
     public function circuit()
     {
         return $this->belongsTo(Circuit::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 
     public function streets()
