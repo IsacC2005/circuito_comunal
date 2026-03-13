@@ -35,18 +35,20 @@ class UserForm
                     ->hint(fn(string $operation) => $operation === 'edit' ? 'Dejar en blanco para no cambiar' : null),
                 Select::make('roles')
                     ->label('Rol')
-                    ->relationship('roles', 'name')
-                    ->options([
+                    ->relationship('roles', 'name', fn($query) => $query->whereIn('name', ['super_admin', 'admin']))
+                    ->getOptionLabelFromRecordUsing(fn($record) => match ($record->name) {
                         'super_admin' => 'Super Admin',
                         'admin'       => 'Admin de Comunidad',
-                    ])
+                        default       => $record->name,
+                    })
+                    ->live()
                     ->required(),
                 Select::make('communities')
                     ->label('Comunidad')
                     ->relationship('communities', 'name')
                     ->searchable()
                     ->preload()
-                    ->visible(fn($get) => $get('roles') === 'admin' || in_array('admin', (array) $get('roles'))),
+                    ->visible(fn($get) => \Spatie\Permission\Models\Role::find($get('roles'))?->name === 'admin'),
             ]);
     }
 }
