@@ -5,6 +5,7 @@ namespace App\Filament\Community\Resources\Houses;
 use App\Filament\Community\Resources\Houses\Pages\CreateHouse;
 use App\Filament\Community\Resources\Houses\Pages\EditHouse;
 use App\Filament\Community\Resources\Houses\Pages\ListHouses;
+use App\Filament\Community\Resources\Houses\RelationManagers\FamiliesRelationManager;
 use App\Filament\Community\Resources\Houses\Schemas\HouseForm;
 use App\Filament\Community\Resources\Houses\Tables\HousesTable;
 use App\Models\House;
@@ -39,7 +40,7 @@ class HouseResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            FamiliesRelationManager::class,
         ];
     }
 
