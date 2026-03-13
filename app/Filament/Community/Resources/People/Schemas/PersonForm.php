@@ -70,6 +70,11 @@ class PersonForm
                         'postgrado' => 'Postgrado',
                     ])
                     ->required(),
+                Select::make('disabilities')
+                    ->relationship('disabilities', 'name')
+                    ->label('Discapacidad')
+                    ->multiple()
+                    ->preload()
             ]);
     }
 }
