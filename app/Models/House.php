@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
-    protected $fillable = ['community_id', 'street_id', 'number'];
+    protected $fillable = ['community_id', 'street_id', 'number', 'description'];
 
     public function community()
     {

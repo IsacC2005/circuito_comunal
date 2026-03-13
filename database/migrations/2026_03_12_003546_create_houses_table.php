@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('community_id')->constrained()->onDelete('cascade');
             $table->foreignId('street_id')->constrained()->onDelete('cascade');
             $table->string('number');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

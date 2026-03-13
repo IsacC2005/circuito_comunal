@@ -3,6 +3,7 @@
 namespace App\Filament\Community\Resources\Houses\Schemas;
 
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -22,6 +23,12 @@ class HouseForm
                     ->label('Número')
                     ->required()
                     ->maxLength(255),
+                Textarea::make('description')
+                    ->label('Descripción')
+                    ->placeholder('Ej: Al lado de la farmacia, frente al parque...')
+                    ->rows(3)
+                    ->nullable()
+                    ->columnSpanFull(),
             ]);
     }
 }
