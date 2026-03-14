@@ -32,12 +32,14 @@ class FamiliesTable
                         'prestada' => 'info',
                         default => 'gray',
                     }),
-                TextColumn::make('food_module')
+                TextColumn::make('food_modules_total')
                     ->label('Mód. alimentario')
+                    ->sum('foodModules as food_modules_total', 'family_food_module.count')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('gas_cylinder')
+                TextColumn::make('gas_cylinders_total')
                     ->label('Bombonas')
+                    ->sum('gasCilinders as gas_cylinders_total', 'family_gas_cilinder.count')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('people_count')
