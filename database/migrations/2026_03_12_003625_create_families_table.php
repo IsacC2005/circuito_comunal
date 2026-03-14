@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreignId('community_id')->constrained()->onDelete('cascade');
             $table->foreignId('house_id')->constrained()->onDelete('cascade');
             $table->enum('house_status', ['propia', 'prestada', 'alquilada', 'hospedado', 'otra']);
-            $table->integer('food_module')->nullable();
-            $table->integer('gas_cylinder')->nullable();
             $table->timestamps();
         });
     }
