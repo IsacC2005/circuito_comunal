@@ -22,13 +22,9 @@ class AdminStatsOverview extends BaseWidget
             ? round($totalPersons / $totalHouses, 2)
             : 0;
 
-        $foodCount = Family::whereNotNull('food_module')
-            ->where('food_module', '>', 0)
-            ->count();
+        $foodCount = Family::has('foodModules')->count();
 
-        $gasCount = Family::whereNotNull('gas_cylinder')
-            ->where('gas_cylinder', '>', 0)
-            ->count();
+        $gasCount = Family::has('gasCilinders')->count();
 
         $foodPercent = $totalFamilies > 0
             ? round(($foodCount / $totalFamilies) * 100, 1)
