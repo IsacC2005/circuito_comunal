@@ -33,5 +33,8 @@ class DatabaseSeeder extends Seeder
             GasCilinderSeeder::class,
             FoodModuleSeeder::class,
         ]);
+
+        // Para poblar con datos masivos de prueba ejecutar:
+        // php artisan db:seed --class=FakeDataSeeder
     }
 }

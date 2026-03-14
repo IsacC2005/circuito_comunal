@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Community extends Model
 {
+    use HasFactory;
+
     protected $fillable = ['circuit_id', 'name', 'code_citur', 'invitation_token'];
 
     public function circuit()
