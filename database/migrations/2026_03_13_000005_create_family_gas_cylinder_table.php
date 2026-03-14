@@ -8,10 +8,10 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('family_gas_cilinder', function (Blueprint $table) {
+        Schema::create('family_gas_cylinder', function (Blueprint $table) {
             $table->id();
             $table->foreignId('family_id')->constrained('families')->onDelete('cascade');
-            $table->foreignId('gas_cilinder_id')->constrained('gas_cilinders')->onDelete('cascade');
+            $table->foreignId('gas_cylinder_id')->constrained('gas_cylinders')->onDelete('cascade');
             $table->integer('count')->default(1);
             $table->timestamps();
         });
@@ -19,6 +19,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('family_gas_cilinder');
+        Schema::dropIfExists('family_gas_cylinder');
     }
 };

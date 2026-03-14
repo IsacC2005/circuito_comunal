@@ -26,9 +26,9 @@ class Family extends Model
         return $this->hasMany(Person::class);
     }
 
-    public function gasCilinders()
+    public function gasCylinders()
     {
-        return $this->belongsToMany(GasCilinder::class, 'family_gas_cilinder')
+        return $this->belongsToMany(GasCylinder::class, 'family_gas_cylinder')
             ->withPivot('count')
             ->withTimestamps();
     }

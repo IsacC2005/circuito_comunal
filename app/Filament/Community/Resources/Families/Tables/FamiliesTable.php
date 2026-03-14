@@ -39,7 +39,7 @@ class FamiliesTable
                     ->sortable(),
                 TextColumn::make('gas_cylinders_total')
                     ->label('Bombonas')
-                    ->sum('gasCilinders as gas_cylinders_total', 'family_gas_cilinder.count')
+                    ->sum('gasCylinders as gas_cylinders_total', 'family_gas_cylinder.count')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('people_count')

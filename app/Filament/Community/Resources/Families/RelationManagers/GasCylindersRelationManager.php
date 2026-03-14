@@ -14,9 +14,9 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 
-class GasCilindersRelationManager extends RelationManager
+class GasCylindersRelationManager extends RelationManager
 {
-    protected static string $relationship = 'gasCilinders';
+    protected static string $relationship = 'gasCylinders';
 
     protected static ?string $title = 'Bonbonas de Gas';
 

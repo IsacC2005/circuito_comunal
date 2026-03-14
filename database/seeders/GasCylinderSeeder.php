@@ -2,25 +2,25 @@
 
 namespace Database\Seeders;
 
-use App\Models\GasCilinder;
-use App\Models\GasCilinderCompany;
-use App\Models\GasCilinderTypeConnection;
+use App\Models\GasCylinder;
+use App\Models\GasCylinderCompany;
+use App\Models\GasCylinderTypeConnection;
 use Illuminate\Database\Seeder;
 
-class GasCilinderSeeder extends Seeder
+class GasCylinderSeeder extends Seeder
 {
     public function run(): void
     {
         // Empresas
         $companies = ['Comunal', 'Tomagas', 'Radelco'];
         foreach ($companies as $name) {
-            GasCilinderCompany::firstOrCreate(['name' => $name]);
+            GasCylinderCompany::firstOrCreate(['name' => $name]);
         }
 
         // Tipos de conexión
         $typeConnections = ['Clip-On', 'Rosca POL', 'Punta fina'];
         foreach ($typeConnections as $name) {
-            GasCilinderTypeConnection::firstOrCreate(['name' => $name]);
+            GasCylinderTypeConnection::firstOrCreate(['name' => $name]);
         }
 
         // Combinaciones válidas de tamaño y tipo de conexión:
@@ -34,10 +34,10 @@ class GasCilinderSeeder extends Seeder
             ['size' => 43, 'type' => 'Rosca POL'],
         ];
 
-        foreach (GasCilinderCompany::all() as $company) {
+        foreach (GasCylinderCompany::all() as $company) {
             foreach ($combinations as $combo) {
-                $typeConnection = GasCilinderTypeConnection::where('name', $combo['type'])->first();
-                GasCilinder::firstOrCreate([
+                $typeConnection = GasCylinderTypeConnection::where('name', $combo['type'])->first();
+                GasCylinder::firstOrCreate([
                     'company_id'         => $company->id,
                     'size'               => $combo['size'],
                     'type_connection_id' => $typeConnection->id,

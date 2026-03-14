@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('gas_cilinder_type_connections', function (Blueprint $table) {
+        Schema::create('gas_cylinder_companies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
@@ -17,6 +17,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('gas_cilinder_type_connections');
+        Schema::dropIfExists('gas_cylinder_companies');
     }
 };

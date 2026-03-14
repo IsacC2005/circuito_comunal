@@ -26,7 +26,7 @@ class FakeDataSeeder extends Seeder
     private int $cedulaCounter = 10_000_001;
 
     private array $disabilityIds  = [];
-    private array $gasCilinderIds = [];
+    private array $gasCylinderIds = [];
     private array $foodModuleIds  = [];
 
     private \Faker\Generator $faker;
@@ -47,13 +47,13 @@ class FakeDataSeeder extends Seeder
         // Llama primero a los seeders de datos de referencia
         $this->call([
             DisabilitySeeder::class,
-            GasCilinderSeeder::class,
+            GasCylinderSeeder::class,
             FoodModuleSeeder::class,
         ]);
 
         // Carga los IDs de referencia
         $this->disabilityIds  = DB::table('disabilities')->pluck('id')->toArray();
-        $this->gasCilinderIds = DB::table('gas_cilinders')->pluck('id')->toArray();
+        $this->gasCylinderIds = DB::table('gas_cylinders')->pluck('id')->toArray();
         $this->foodModuleIds  = DB::table('food_modules')->pluck('id')->toArray();
 
         $this->command->info('Iniciando carga masiva de datos…');
@@ -210,13 +210,13 @@ class FakeDataSeeder extends Seeder
         }
 
         // ── 7. BOMBONAS DE GAS (~60 % de las familias) ──────────────────────
-        if (!empty($this->gasCilinderIds)) {
+        if (!empty($this->gasCylinderIds)) {
             $gasData = [];
             foreach ($familyIds as $familyId) {
                 if (rand(1, 100) <= 60) {
                     $gasData[] = [
                         'family_id'      => $familyId,
-                        'gas_cilinder_id' => $this->faker->randomElement($this->gasCilinderIds),
+                        'gas_cylinder_id' => $this->faker->randomElement($this->gasCylinderIds),
                         'count'          => rand(1, 3),
                         'created_at'     => $now,
                         'updated_at'     => $now,
@@ -224,7 +224,7 @@ class FakeDataSeeder extends Seeder
                 }
             }
             foreach (array_chunk($gasData, 500) as $chunk) {
-                DB::table('family_gas_cilinder')->insert($chunk);
+                DB::table('family_gas_cylinder')->insert($chunk);
             }
         }
 

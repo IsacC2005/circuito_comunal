@@ -8,17 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('gas_cilinders', function (Blueprint $table) {
+        Schema::create('gas_cylinders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->constrained('gas_cilinder_companies')->onDelete('cascade');
+            $table->foreignId('company_id')->constrained('gas_cylinder_companies')->onDelete('cascade');
             $table->integer('size'); // en kg
-            $table->foreignId('type_connection_id')->constrained('gas_cilinder_type_connections')->onDelete('cascade');
+            $table->foreignId('type_connection_id')->constrained('gas_cylinder_type_connections')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('gas_cilinders');
+        Schema::dropIfExists('gas_cylinders');
     }
 };

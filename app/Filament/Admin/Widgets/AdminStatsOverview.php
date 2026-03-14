@@ -24,7 +24,7 @@ class AdminStatsOverview extends BaseWidget
 
         $foodCount = Family::has('foodModules')->count();
 
-        $gasCount = Family::has('gasCilinders')->count();
+        $gasCount = Family::has('gasCylinders')->count();
 
         $foodPercent = $totalFamilies > 0
             ? round(($foodCount / $totalFamilies) * 100, 1)

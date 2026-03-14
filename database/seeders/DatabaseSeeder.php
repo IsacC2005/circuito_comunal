@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             DisabilitySeeder::class,
-            GasCilinderSeeder::class,
+            GasCylinderSeeder::class,
             FoodModuleSeeder::class,
         ]);
 
