@@ -5,6 +5,8 @@ namespace App\Filament\Community\Resources\Families;
 use App\Filament\Community\Resources\Families\Pages\CreateFamily;
 use App\Filament\Community\Resources\Families\Pages\EditFamily;
 use App\Filament\Community\Resources\Families\Pages\ListFamilies;
+use App\Filament\Community\Resources\Families\RelationManagers\FoodModulesRelationManager;
+use App\Filament\Community\Resources\Families\RelationManagers\GasCilindersRelationManager;
 use App\Filament\Community\Resources\Families\Schemas\FamilyForm;
 use App\Filament\Community\Resources\Families\Tables\FamiliesTable;
 use App\Models\Family;
@@ -37,7 +39,8 @@ class FamilyResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            GasCilindersRelationManager::class,
+            FoodModulesRelationManager::class,
         ];
     }
 

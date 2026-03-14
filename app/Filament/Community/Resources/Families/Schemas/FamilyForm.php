@@ -3,7 +3,6 @@
 namespace App\Filament\Community\Resources\Families\Schemas;
 
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class FamilyForm
@@ -28,14 +27,6 @@ class FamilyForm
                         'otra' => 'Otra',
                     ])
                     ->required(),
-                TextInput::make('food_module')
-                    ->label('Módulo alimentario')
-                    ->numeric()
-                    ->nullable(),
-                TextInput::make('gas_cylinder')
-                    ->label('Bombonas de gas')
-                    ->numeric()
-                    ->nullable(),
             ]);
     }
 }

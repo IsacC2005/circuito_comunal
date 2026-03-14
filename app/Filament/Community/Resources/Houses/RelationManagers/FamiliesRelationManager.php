@@ -45,16 +45,6 @@ class FamiliesRelationManager extends RelationManager
                     ->required()
                     ->columnSpanFull(),
 
-                TextInput::make('food_module')
-                    ->label('Módulo alimentario')
-                    ->numeric()
-                    ->nullable(),
-
-                TextInput::make('gas_cylinder')
-                    ->label('Bombonas de gas')
-                    ->numeric()
-                    ->nullable(),
-
                 Repeater::make('people')
                     ->label('Personas')
                     ->relationship('people')
@@ -158,16 +148,6 @@ class FamiliesRelationManager extends RelationManager
                         'prestada' => 'info',
                         default => 'gray',
                     }),
-
-                TextColumn::make('food_module')
-                    ->label('Mód. alimentario')
-                    ->numeric()
-                    ->sortable(),
-
-                TextColumn::make('gas_cylinder')
-                    ->label('Bombonas')
-                    ->numeric()
-                    ->sortable(),
 
                 TextColumn::make('people_count')
                     ->label('Personas')
