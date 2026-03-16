@@ -122,12 +122,16 @@ class FamiliesRelationManager extends RelationManager
                     ->columns(2)
                     ->rules([
                         fn() => function (string $attribute, $value, $fail) {
-                            $hasJefe = collect($value)->contains(
+                            $jefeCount = collect($value)->filter(
                                 fn($person) => ($person['relationship'] ?? null) === 'jefe de familia'
-                            );
+                            )->count();
 
-                            if (! $hasJefe) {
+                            if ($jefeCount === 0) {
                                 $fail('Debe haber al menos una persona con el parentesco "Jefe de familia".');
+                            }
+
+                            if ($jefeCount > 1) {
+                                $fail('Solo puede haber un "Jefe de familia" por familia.');
                             }
                         },
                     ]),
